@@ -1,0 +1,40 @@
+{% extends 'base/base.html'%}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+<div class="jumbotron">
+	<fieldset>
+	<div class="form-group">
+		<label for="{{form2.nombre.name}}"> {{form2.nombre.label}}</label>
+			{{form2.nombre}}
+	</div>	
+	</fieldset>
+	<fieldset>
+	<div class="form-group">
+		<label for="{{form2.telefono.name}}"> {{form2.telefono.label}}</label>
+			{{form2.telefono}}
+	</div>	
+	</fieldset>
+	<fieldset>
+	<div class="form-group">
+		<label for="{{form2.email.name}}"> {{form2.email.label}}</label>
+			{{form2.email}}
+	</div>	
+	</fieldset>
+	<fieldset>
+	<div class="form-group">
+		<label for="{{form.numero_playera.name}}"> {{form.numero_playera.label}}</label>
+			{{form.numero_playera}}
+	</div>	
+	</fieldset>
+	<fieldset>
+	<div class="form-group">
+		<label for="{{form.razones.name}}"> {{form.razones.label}}</label>
+			{{form.razones}}
+	</div>	
+	</fieldset>
+	<button type="submit">Guardar</button>
+</div>
+</form>
+{% endblock %}

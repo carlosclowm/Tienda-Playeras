@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Ventas Lista {% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>No. Solicitud</td>
+			<td>Nombre</td>
+			<td>Telefono</td>
+			<td>Email</td>
+			<td>Numero de Playeras</td>
+			<td>Razon</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for solicitud in object_list %}
+		<tr>
+			<td>{{ solicitud.id }}</td>
+			<td>{{ solicitud.cliente.nombre }}</td>
+			<td>{{ solicitud.cliente.telefono }}</td>
+			<td>{{ solicitud.cliente.email }}</td>
+			<td>{{ solicitud.numero_playera }}</td>
+			<td>{{ solicitud.razones }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'vender:solicitud_editar' solicitud.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'vender:solicitud_eliminar' solicitud.id %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de solicitudes</h1>
+		{% endif %}
+	</tbody>
+</table> 
+
+{% endblock%}

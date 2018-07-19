@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Inicio
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block salir %}
+{% endblock %}
+{% block content %}
+<div class="container" align="center">
+    <div class="alert alert-dismissible alert-secondary" style="max-width: 20em">
+  <div class="card-body" >
+    <form method="post">
+    {% csrf_token %}
+     <div class="row">
+            
+                <label for="username">Nombre de usuario:</label>
+                <input class="form-control" type="text" name="username">
+           
+    </div>    
+    <div class="row">
+            
+                <label for="username">Contraseña:</label>
+                <input class="form-control" type="password" name="password">
+           
+    </div>
+    <div class="row">
+            <div class="form-group">
+                <a class="text-primary" href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+                <input class="btn btn-outline-primary" type="submit" value="Ingresar">
+                <a class="btn btn-outline-success" href="" role="button">Registrarte</a>
+           </div>
+
+
+    </div>
+</form>
+  </div>
+</div>
+    
+</div>
+
+
+
+{% endblock %}
